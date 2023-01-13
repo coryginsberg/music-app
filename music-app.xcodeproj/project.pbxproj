@@ -13,6 +13,7 @@
 		EEF705842972176D003E460C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF705832972176D003E460C /* ContentView.swift */; };
 		EEF705862972176F003E460C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEF705852972176F003E460C /* Assets.xcassets */; };
 		EEF7058A2972176F003E460C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEF705892972176F003E460C /* Preview Assets.xcassets */; };
+		EEF7059129721B36003E460C /* MediaPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7059029721B36003E460C /* MediaPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EEF705852972176F003E460C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEF705872972176F003E460C /* music_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = music_app.entitlements; sourceTree = "<group>"; };
 		EEF705892972176F003E460C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EEF7059029721B36003E460C /* MediaPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				EEF7057C2972176D003E460C /* music_appApp.swift */,
 				EEF7057E2972176D003E460C /* Persistence.swift */,
 				EEF705832972176D003E460C /* ContentView.swift */,
+				EEF7059029721B36003E460C /* MediaPlayerView.swift */,
 				EEF705852972176F003E460C /* Assets.xcassets */,
 				EEF705872972176F003E460C /* music_app.entitlements */,
 				EEF705802972176D003E460C /* music_app.xcdatamodeld */,
@@ -148,6 +151,7 @@
 				EEF7057D2972176D003E460C /* music_appApp.swift in Sources */,
 				EEF7057F2972176D003E460C /* Persistence.swift in Sources */,
 				EEF705842972176D003E460C /* ContentView.swift in Sources */,
+				EEF7059129721B36003E460C /* MediaPlayerView.swift in Sources */,
 				EEF705822972176D003E460C /* music_app.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
