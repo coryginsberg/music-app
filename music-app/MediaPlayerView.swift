@@ -7,31 +7,54 @@
 
 import SwiftUI
 
-enum RepeatState {
-  case noRepeat
-  case repeatPlaylist
-  case repeatSong
+enum RepeatState: String {
+  case noRepeat = "noRepeat"
+  case repeatPlaylist = "repeatPlaylist"
+  case repeatSong = "repeatSong"
 }
 
+typealias RepeatTuple = (String, Color, RepeatState)
+
 struct MediaPlayerView: View {
-  public var color: Color
   
+  public var baseColor: Color
   @State private var isPlaying = false
   @State private var isPlayingIcon = "play.fill"
-  @State private var repeatIcon = ("repeat", Color(.gray), RepeatState.noRepeat)
-  @State private var isShuffle: Bool = false
+  @State private var repeatIcon: RepeatTuple
+  @State private var isShuffle: Bool
   
+  private var savedValues = UserDefaults.standard
+  
+  init(baseColor: Color) {
+    func setRepeatTuple(forState state: String) -> RepeatTuple {
+      switch state {
+      case RepeatState.noRepeat.rawValue:
+        return ("repeat", Color(.gray), RepeatState.noRepeat)
+      case RepeatState.repeatPlaylist.rawValue:
+        return ("repeat", baseColor, RepeatState.repeatPlaylist)
+      case RepeatState.repeatSong.rawValue:
+        return ("repeat.1", baseColor, RepeatState.repeatSong)
+      default:
+        return ("repeat", Color(.gray), RepeatState.noRepeat)
+      }
+    }
+    
+    self.baseColor = baseColor
+    self.repeatIcon = setRepeatTuple(forState: savedValues.string(forKey: "RepeatState") ?? RepeatState.noRepeat.rawValue)
+    self.isShuffle = savedValues.bool(forKey: "ShuffleState")
+  }
+   
   var body: some View {
     VStack {
       Image(systemName: "placeholdertext.fill")
         .scaleEffect(30.0)
         .frame(height: 500.0)
-        .foregroundColor(color)
+        .foregroundColor(baseColor)
       HStack {
-        MediaSecondaryButton(systemImage: "shuffle", color: isShuffle ? color : Color(.gray), action: self.shuffleSong)
-        MediaPrimaryButton(systemImage: "backward.fill", color: color, action: self.prevSong)
-        MediaPrimaryButton(systemImage: isPlayingIcon, color: color, action: self.togglePlay)
-        MediaPrimaryButton(systemImage: "forward.fill", color: color, action: self.nextSong)
+        MediaSecondaryButton(systemImage: "shuffle", color: isShuffle ? baseColor : Color(.gray), action: self.shuffleSong)
+        MediaPrimaryButton(systemImage: "backward.fill", color: baseColor, action: self.prevSong)
+        MediaPrimaryButton(systemImage: isPlayingIcon, color: baseColor, action: self.togglePlay)
+        MediaPrimaryButton(systemImage: "forward.fill", color: baseColor, action: self.nextSong)
         MediaSecondaryButton(systemImage: repeatIcon.0, color: repeatIcon.1, action: self.loopSong)
       }
         .frame(height: 100.0, alignment: .bottom)
@@ -58,19 +81,22 @@ struct MediaPlayerView: View {
   
   func shuffleSong() -> Void {
     isShuffle.toggle()
+    savedValues.set(isShuffle, forKey: "ShuffleState")
     return
   }
   
   func loopSong() -> Void {
+    var repeatTuple: (String, Color, RepeatState)
     switch repeatIcon.2 {
     case .noRepeat:
-      self.repeatIcon = ("repeat", color, RepeatState.repeatPlaylist)
+      repeatTuple = ("repeat", baseColor, RepeatState.repeatPlaylist)
     case .repeatPlaylist:
-      self.repeatIcon = ("repeat.1", color, RepeatState.repeatSong)
+      repeatTuple = ("repeat.1", baseColor, RepeatState.repeatSong)
     case .repeatSong:
-      self.repeatIcon = ("repeat", Color(.gray), RepeatState.noRepeat)
+      repeatTuple = ("repeat", Color(.gray), RepeatState.noRepeat)
     }
-    return
+    self.repeatIcon = repeatTuple
+    savedValues.set(repeatTuple.2.rawValue, forKey: "RepeatState")
   }
 }
 
@@ -106,6 +132,6 @@ struct MediaSecondaryButton: View {
 
 struct MediaPlayerView_Previews: PreviewProvider {
   static var previews: some View {
-    MediaPlayerView(color: .blue)
+    MediaPlayerView(baseColor: .blue)
   }
 }

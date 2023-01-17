@@ -27,7 +27,7 @@ struct ContentView: View {
         NavigationLink("Green", value: Color.green)
       }
       .navigationDestination(for: Color.self) { color in
-        MediaPlayerView(color: color)
+        MediaPlayerView(baseColor: color)
       }
       .navigationTitle("Songs")
     }
