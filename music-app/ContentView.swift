@@ -5,31 +5,33 @@
 //  Created by Cory Ginsberg on 1/13/23.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
+
+// MARK: - ContentView
 
 struct ContentView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
   @FetchRequest(
-      sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-      animation: .default)
+    sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+    animation: .default)
   private var items: FetchedResults<Item>
 
   var body: some View {
-    NavigationStack {
-      List {
-        NavigationLink("Mint", value: Color.mint)
-        NavigationLink("Pink", value: Color.pink)
-        NavigationLink("Teal", value: Color.teal)
-        NavigationLink("Indigo", value: Color.indigo)
-        NavigationLink("Yellow", value: Color.yellow)
-        NavigationLink("Green", value: Color.green)
-      }
-      .navigationDestination(for: Color.self) { color in
-        MediaPlayerView(baseColor: color)
-      }
-      .navigationTitle("Songs")
+    TabView {
+      SongsList()
+        .tabItem {
+          Label("Library", systemImage: "music.note.list")
+        }
+      Text("Browse")
+        .tabItem {
+          Label("Browse", systemImage: "square.grid.2x2.fill")
+        }
+      Text("Search")
+        .tabItem {
+          Label("Search", systemImage: "magnifyingglass")
+        }
     }
   }
 }
@@ -40,6 +42,8 @@ private let itemFormatter: DateFormatter = {
   formatter.timeStyle = .medium
   return formatter
 }()
+
+// MARK: - ContentView_Previews
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {

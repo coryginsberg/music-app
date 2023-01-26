@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE6BD7F62983264A004F4835 /* SongsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6BD7F52983264A004F4835 /* SongsList.swift */; };
 		EEF7057D2972176D003E460C /* music_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7057C2972176D003E460C /* music_appApp.swift */; };
 		EEF7057F2972176D003E460C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7057E2972176D003E460C /* Persistence.swift */; };
 		EEF705822972176D003E460C /* music_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEF705802972176D003E460C /* music_app.xcdatamodeld */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE6BD7F52983264A004F4835 /* SongsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsList.swift; sourceTree = "<group>"; };
 		EEF705792972176D003E460C /* music-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "music-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF7057C2972176D003E460C /* music_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_appApp.swift; sourceTree = "<group>"; };
 		EEF7057E2972176D003E460C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				EEF7057C2972176D003E460C /* music_appApp.swift */,
 				EEF7057E2972176D003E460C /* Persistence.swift */,
 				EEF705832972176D003E460C /* ContentView.swift */,
+				EE6BD7F52983264A004F4835 /* SongsList.swift */,
 				EEF7059029721B36003E460C /* MediaPlayerView.swift */,
 				EEF705852972176F003E460C /* Assets.xcassets */,
 				EEF705872972176F003E460C /* music_app.entitlements */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6BD7F62983264A004F4835 /* SongsList.swift in Sources */,
 				EEF7057D2972176D003E460C /* music_appApp.swift in Sources */,
 				EEF7057F2972176D003E460C /* Persistence.swift in Sources */,
 				EEF705842972176D003E460C /* ContentView.swift in Sources */,
