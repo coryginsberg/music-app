@@ -21,11 +21,12 @@ struct SongsList: View {
                  currentPlayingSongDetails: $currentPlayingSongDetails)
       }
       .sheet(item: $currentPlayingSongDetails,
-             onDismiss: { currentPlayingSongDetails = nil }) { detail in
-        MediaPlayerView(baseColor: detail.color)
-          .presentationDragIndicator(.visible)
-          .presentationDetents([.large]) 
-      }
+             onDismiss: { currentPlayingSongDetails = nil },
+             content: { detail in
+               MediaPlayerView(baseColor: detail.color)
+                 .presentationDragIndicator(.visible)
+                 .presentationDetents([.large])
+             })
       .navigationDestination(for: Color.self) { color in
         MediaPlayerView(baseColor: color)
       }

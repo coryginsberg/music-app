@@ -43,7 +43,8 @@ struct MediaPlayerView: View {
     }
 
     self.baseColor = baseColor
-    self.repeatIcon = setRepeatTuple(forState: savedValues.string(forKey: "RepeatState") ?? RepeatState.noRepeat.rawValue)
+    self.repeatIcon = setRepeatTuple(forState: savedValues.string(forKey: "RepeatState")
+                                     ?? RepeatState.noRepeat.rawValue)
     self.isShuffle = savedValues.bool(forKey: "ShuffleState")
   }
 
@@ -55,7 +56,9 @@ struct MediaPlayerView: View {
         .foregroundColor(baseColor)
         .padding(.bottom, 100)
       HStack {
-        MediaSecondaryButton(systemImage: "shuffle", color: isShuffle ? baseColor : Color(.gray), action: self.shuffleSong)
+        MediaSecondaryButton(systemImage: "shuffle",
+                             color: isShuffle ? baseColor : Color(.gray),
+                             action: self.shuffleSong)
         MediaPrimaryButton(systemImage: "backward.fill", color: baseColor, action: self.prevSong)
         MediaPrimaryButton(systemImage: isPlayingIcon, color: baseColor, action: self.togglePlay)
         MediaPrimaryButton(systemImage: "forward.fill", color: baseColor, action: self.nextSong)

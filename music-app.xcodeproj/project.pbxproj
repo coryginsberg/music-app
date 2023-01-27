@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5211429FD927E13CFB207DDA /* Pods_music_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFEC7E0A306AB94C6B3759D /* Pods_music_app.framework */; };
 		EE3188FE29843E0C00333289 /* SongItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3188FD29843E0C00333289 /* SongItem.swift */; };
 		EE31890229843F4300333289 /* SongDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31890129843F4300333289 /* SongDetails.swift */; };
 		EE6BD7F62983264A004F4835 /* SongsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6BD7F52983264A004F4835 /* SongsList.swift */; };
+		EE9D748D29846C23002DD1F7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EE9D748C29846C23002DD1F7 /* .swiftlint.yml */; };
+		EE9D748F29846C77002DD1F7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EE9D748E29846C77002DD1F7 /* Podfile */; };
 		EEF7057D2972176D003E460C /* music_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7057C2972176D003E460C /* music_appApp.swift */; };
 		EEF7057F2972176D003E460C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7057E2972176D003E460C /* Persistence.swift */; };
 		EEF705822972176D003E460C /* music_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEF705802972176D003E460C /* music_app.xcdatamodeld */; };
@@ -20,9 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E73168AA06DDE0EEE26331C /* Pods-music-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-music-app.release.xcconfig"; path = "Target Support Files/Pods-music-app/Pods-music-app.release.xcconfig"; sourceTree = "<group>"; };
+		28A3B959F568C9011C7D1748 /* Pods-music-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-music-app.debug.xcconfig"; path = "Target Support Files/Pods-music-app/Pods-music-app.debug.xcconfig"; sourceTree = "<group>"; };
+		2FFEC7E0A306AB94C6B3759D /* Pods_music_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_music_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3188FD29843E0C00333289 /* SongItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongItem.swift; sourceTree = "<group>"; };
 		EE31890129843F4300333289 /* SongDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetails.swift; sourceTree = "<group>"; };
 		EE6BD7F52983264A004F4835 /* SongsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsList.swift; sourceTree = "<group>"; };
+		EE9D748C29846C23002DD1F7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		EE9D748E29846C77002DD1F7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EEF705792972176D003E460C /* music-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "music-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF7057C2972176D003E460C /* music_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_appApp.swift; sourceTree = "<group>"; };
 		EEF7057E2972176D003E460C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -39,12 +47,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5211429FD927E13CFB207DDA /* Pods_music_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A59C23E1A12EADBD9C9E2373 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28A3B959F568C9011C7D1748 /* Pods-music-app.debug.xcconfig */,
+				0E73168AA06DDE0EEE26331C /* Pods-music-app.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EE3188FF29843EDD00333289 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,8 +85,11 @@
 		EEF705702972176D003E460C = {
 			isa = PBXGroup;
 			children = (
+				EE9D748E29846C77002DD1F7 /* Podfile */,
 				EEF7057B2972176D003E460C /* music-app */,
 				EEF7057A2972176D003E460C /* Products */,
+				A59C23E1A12EADBD9C9E2373 /* Pods */,
+				F0FA21ABCBD2F81B6908679E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +104,7 @@
 		EEF7057B2972176D003E460C /* music-app */ = {
 			isa = PBXGroup;
 			children = (
+				EE9D748C29846C23002DD1F7 /* .swiftlint.yml */,
 				EE31890029843F0C00333289 /* Utils */,
 				EE3188FF29843EDD00333289 /* Views */,
 				EEF7057C2972176D003E460C /* music_appApp.swift */,
@@ -103,6 +125,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F0FA21ABCBD2F81B6908679E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FFEC7E0A306AB94C6B3759D /* Pods_music_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +140,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEF7058D2972176F003E460C /* Build configuration list for PBXNativeTarget "music-app" */;
 			buildPhases = (
+				5D64C29A89A227152A3E01DC /* [CP] Check Pods Manifest.lock */,
+				EE0FDFA929846D3300D3BF08 /* Run SwiftLint */,
 				EEF705752972176D003E460C /* Sources */,
 				EEF705762972176D003E460C /* Frameworks */,
 				EEF705772972176D003E460C /* Resources */,
@@ -161,12 +193,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9D748D29846C23002DD1F7 /* .swiftlint.yml in Resources */,
 				EEF7058A2972176F003E460C /* Preview Assets.xcassets in Resources */,
+				EE9D748F29846C77002DD1F7 /* Podfile in Resources */,
 				EEF705862972176F003E460C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D64C29A89A227152A3E01DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-music-app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE0FDFA929846D3300D3BF08 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EEF705752972176D003E460C /* Sources */ = {
@@ -220,6 +298,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -278,6 +357,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -298,12 +378,15 @@
 		};
 		EEF7058E2972176F003E460C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A3B959F568C9011C7D1748 /* Pods-music-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "music-app/music_app.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"music-app/Preview Content\"";
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -318,8 +401,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -328,21 +411,26 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.coryginsberg.music-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		EEF7058F2972176F003E460C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E73168AA06DDE0EEE26331C /* Pods-music-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "music-app/music_app.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"music-app/Preview Content\"";
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -357,8 +445,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -367,10 +455,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.coryginsberg.music-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -15,38 +15,39 @@ struct SongItem: View {
 
   var body: some View {
     Button(action: {
-      currentPlayingSongDetails = SongDetails(
-        id: songDetails.id,
-        color: songDetails.color,
-        songTitle: songDetails.songTitle,
-        artist: songDetails.artist,
-        albumArt: songDetails.albumArt,
-        isExplicit: songDetails.isExplicit,
-        isDownloaded: songDetails.isDownloaded)
-    }) {
-      HStack {
-        songDetails.albumArt
-        VStack(alignment: .leading) {
-          HStack {
-            Text(songDetails.songTitle)
-              .dynamicTypeSize(...DynamicTypeSize.medium)
-            if songDetails.isExplicit {
-              Image(systemName: "e.square.fill")
-            }
-          }
+             currentPlayingSongDetails = SongDetails(
+               id: songDetails.id,
+               color: songDetails.color,
+               songTitle: songDetails.songTitle,
+               artist: songDetails.artist,
+               albumArt: songDetails.albumArt,
+               isExplicit: songDetails.isExplicit,
+               isDownloaded: songDetails.isDownloaded)
+           },
+           label: {
+             HStack {
+               songDetails.albumArt
+               VStack(alignment: .leading) {
+                 HStack {
+                   Text(songDetails.songTitle)
+                     .dynamicTypeSize(...DynamicTypeSize.medium)
+                   if songDetails.isExplicit {
+                     Image(systemName: "e.square.fill")
+                   }
+                 }
 
-          Text(songDetails.artist)
-            .dynamicTypeSize(...DynamicTypeSize.xSmall)
-            .foregroundColor(.secondary)
-        }
-        .padding(.leading)
-        if songDetails.isDownloaded {
-          Spacer()
-          DownloadedImage()
-        }
-      }.frame(maxWidth: .infinity, alignment: .leading)
-    }
-    .foregroundColor(.primary)
+                 Text(songDetails.artist)
+                   .dynamicTypeSize(...DynamicTypeSize.xSmall)
+                   .foregroundColor(.secondary)
+               }
+               .padding(.leading)
+               if songDetails.isDownloaded {
+                 Spacer()
+                 DownloadedImage()
+               }
+             }.frame(maxWidth: .infinity, alignment: .leading)
+           })
+           .foregroundColor(.primary)
   }
 }
 
