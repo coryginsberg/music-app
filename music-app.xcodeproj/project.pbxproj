@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3188FE29843E0C00333289 /* SongItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3188FD29843E0C00333289 /* SongItem.swift */; };
+		EE31890229843F4300333289 /* SongDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31890129843F4300333289 /* SongDetails.swift */; };
 		EE6BD7F62983264A004F4835 /* SongsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6BD7F52983264A004F4835 /* SongsList.swift */; };
 		EEF7057D2972176D003E460C /* music_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7057C2972176D003E460C /* music_appApp.swift */; };
 		EEF7057F2972176D003E460C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF7057E2972176D003E460C /* Persistence.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE3188FD29843E0C00333289 /* SongItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongItem.swift; sourceTree = "<group>"; };
+		EE31890129843F4300333289 /* SongDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetails.swift; sourceTree = "<group>"; };
 		EE6BD7F52983264A004F4835 /* SongsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsList.swift; sourceTree = "<group>"; };
 		EEF705792972176D003E460C /* music-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "music-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF7057C2972176D003E460C /* music_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_appApp.swift; sourceTree = "<group>"; };
@@ -41,6 +45,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE3188FF29843EDD00333289 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EEF705832972176D003E460C /* ContentView.swift */,
+				EE6BD7F52983264A004F4835 /* SongsList.swift */,
+				EE3188FD29843E0C00333289 /* SongItem.swift */,
+				EEF7059029721B36003E460C /* MediaPlayerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EE31890029843F0C00333289 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EE31890129843F4300333289 /* SongDetails.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		EEF705702972176D003E460C = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +83,10 @@
 		EEF7057B2972176D003E460C /* music-app */ = {
 			isa = PBXGroup;
 			children = (
+				EE31890029843F0C00333289 /* Utils */,
+				EE3188FF29843EDD00333289 /* Views */,
 				EEF7057C2972176D003E460C /* music_appApp.swift */,
 				EEF7057E2972176D003E460C /* Persistence.swift */,
-				EEF705832972176D003E460C /* ContentView.swift */,
-				EE6BD7F52983264A004F4835 /* SongsList.swift */,
-				EEF7059029721B36003E460C /* MediaPlayerView.swift */,
 				EEF705852972176F003E460C /* Assets.xcassets */,
 				EEF705872972176F003E460C /* music_app.entitlements */,
 				EEF705802972176D003E460C /* music_app.xcdatamodeld */,
@@ -152,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6BD7F62983264A004F4835 /* SongsList.swift in Sources */,
+				EE31890229843F4300333289 /* SongDetails.swift in Sources */,
+				EE3188FE29843E0C00333289 /* SongItem.swift in Sources */,
 				EEF7057D2972176D003E460C /* music_appApp.swift in Sources */,
 				EEF7057F2972176D003E460C /* Persistence.swift in Sources */,
 				EEF705842972176D003E460C /* ContentView.swift in Sources */,
@@ -285,6 +309,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -323,6 +348,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
