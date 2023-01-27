@@ -25,10 +25,6 @@ struct MediaPlayerView: View {
   @State private var isPlayingIcon = "play.fill"
   @State private var repeatIcon: RepeatTuple
   @State private var isShuffle: Bool
-  @State private var location: CGPoint = CGPoint(x: 50, y: 50)
-  
-  @GestureState private var fingerLocation: CGPoint? = nil
-  @GestureState private var startLocation: CGPoint? = nil // 1
 
   private var savedValues = UserDefaults.standard
 
@@ -52,61 +48,26 @@ struct MediaPlayerView: View {
   }
 
   var body: some View {
-    ZStack(alignment: .bottom) {
-      RoundedRectangle(cornerRadius: 48)
-        .background(ignoresSafeAreaEdges: .bottom)
-        .padding(.bottom, -35)
-        .foregroundColor(.init(UIColor.systemGray3))
-        
-      VStack(alignment: .center) {
-        Image(systemName: "placeholdertext.fill")
-          .scaleEffect(30.0)
-          .frame(height: 500.0)
-          .foregroundColor(baseColor)
-          .padding(.bottom, 100)
-        HStack {
-          MediaSecondaryButton(systemImage: "shuffle", color: isShuffle ? baseColor : Color(.gray), action: self.shuffleSong)
-          MediaPrimaryButton(systemImage: "backward.fill", color: baseColor, action: self.prevSong)
-          MediaPrimaryButton(systemImage: isPlayingIcon, color: baseColor, action: self.togglePlay)
-          MediaPrimaryButton(systemImage: "forward.fill", color: baseColor, action: self.nextSong)
-          MediaSecondaryButton(systemImage: repeatIcon.0, color: repeatIcon.1, action: self.loopSong)
-        }
-        .onAppear {
-          UITabBar.appearance().barTintColor = UIColor(baseColor)
-        }
+    VStack(alignment: .center) {
+      Image(systemName: "placeholdertext.fill")
+        .scaleEffect(30.0)
+        .frame(height: 500.0)
+        .foregroundColor(baseColor)
         .padding(.bottom, 100)
-      }    .gesture(simpleDrag.simultaneously(with: fingerDrag))
-
-      
-      if let fingerLocation = fingerLocation {
-        Circle()
-          .stroke(Color.green, lineWidth: 2)
-          .frame(width: 60, height: 60)
-          .position(fingerLocation)
+      HStack {
+        MediaSecondaryButton(systemImage: "shuffle", color: isShuffle ? baseColor : Color(.gray), action: self.shuffleSong)
+        MediaPrimaryButton(systemImage: "backward.fill", color: baseColor, action: self.prevSong)
+        MediaPrimaryButton(systemImage: isPlayingIcon, color: baseColor, action: self.togglePlay)
+        MediaPrimaryButton(systemImage: "forward.fill", color: baseColor, action: self.nextSong)
+        MediaSecondaryButton(systemImage: repeatIcon.0, color: repeatIcon.1, action: self.loopSong)
       }
+      .onAppear {
+        UITabBar.appearance().barTintColor = UIColor(baseColor)
+      }
+      .padding(.bottom, 100)
     }
-    .toolbar(.hidden, for: .tabBar)
   }
 
-  var simpleDrag: some Gesture {
-      DragGesture()
-          .onChanged { value in
-              var newLocation = startLocation ?? location // 3
-              newLocation.x += value.translation.width
-              newLocation.y += value.translation.height
-              self.location = newLocation
-          }.updating($startLocation) { (value, startLocation, transaction) in
-              startLocation = startLocation ?? location // 2
-          }
-  }
-  
-  var fingerDrag: some Gesture {
-      DragGesture()
-          .updating($fingerLocation) { (value, fingerLocation, transaction) in
-              fingerLocation = value.location
-          }
-  }
-  
   func prevSong() {}
 
   func togglePlay() {
