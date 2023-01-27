@@ -20,10 +20,11 @@ struct SongsList: View {
         SongItem(songDetails: song,
                  currentPlayingSongDetails: $currentPlayingSongDetails)
       }
-      .sheet(item: $currentPlayingSongDetails) { detail in
+      .sheet(item: $currentPlayingSongDetails,
+             onDismiss: { currentPlayingSongDetails = nil }) { detail in
         MediaPlayerView(baseColor: detail.color)
           .presentationDragIndicator(.visible)
-          .presentationDetents([.large])
+          .presentationDetents([.large]) 
       }
       .navigationDestination(for: Color.self) { color in
         MediaPlayerView(baseColor: color)
@@ -37,19 +38,6 @@ struct SongsList: View {
 
 struct SongsList_Previews: PreviewProvider {
   static var previews: some View {
-    SongsList(allSongs: [SongDetails(id: "0",
-                                     color: .mint,
-                                     songTitle: "Love From The Other Side",
-                                     artist: "Fall Out Boy",
-                                     albumArt: .init(systemName: "play.square.fill"),
-                                     isExplicit: false,
-                                     isDownloaded: false),
-                         SongDetails(id: "1",
-                                     color: .yellow,
-                                     songTitle: "Recession Proof",
-                                     artist: "Nas",
-                                     albumArt: .init(systemName: "play.square.fill"),
-                                     isExplicit: true,
-                                     isDownloaded: false)])
+    SongsList(allSongs: testSongs)
   }
 }
