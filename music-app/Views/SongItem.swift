@@ -57,7 +57,7 @@ struct DownloadedImage: View {
   var body: some View {
     Image(systemName: "arrow.down.circle.fill")
       .foregroundColor(.secondary)
-      .frame(width: .infinity, alignment: .trailing)
+      .frame(width: 25.0, alignment: .trailing)
   }
 }
 

@@ -25,6 +25,7 @@ struct MediaPlayerView: View {
   @State private var isPlayingIcon = "play.fill"
   @State private var repeatIcon: RepeatTuple
   @State private var isShuffle: Bool
+  @State private var isEditing = false
 
   private var savedValues = UserDefaults.standard
 
@@ -44,30 +45,112 @@ struct MediaPlayerView: View {
 
     self.baseColor = baseColor
     self.repeatIcon = setRepeatTuple(forState: savedValues.string(forKey: "RepeatState")
-                                     ?? RepeatState.noRepeat.rawValue)
+      ?? RepeatState.noRepeat.rawValue)
     self.isShuffle = savedValues.bool(forKey: "ShuffleState")
   }
 
   var body: some View {
     VStack(alignment: .center) {
+      Spacer(minLength: 50.0)
       Image(systemName: "placeholdertext.fill")
-        .scaleEffect(30.0)
-        .frame(height: 500.0)
+        .resizable()
+        .frame(width: 250.0, height: 250.0)
         .foregroundColor(baseColor)
-        .padding(.bottom, 100)
+        .aspectRatio(contentMode: .fill)
+        .padding(.vertical, 25.0)
+        .padding(.horizontal)
+      Spacer(minLength: 100.0)
+      HStack(alignment: .center, content: {
+        VStack(alignment: .leading, content: {
+          Text("Hello World")
+            .fontWeight(.semibold)
+          Text("Hello World")
+            .contextMenu(menuItems: {
+              Button(
+                action: {
+                  print("Go to Album")
+                },
+                label: {
+                  VStack {
+                    Text("Go to Album")
+                    Text("Hello World").foregroundColor(.secondary)
+                  }
+                  Image(systemName: "square.stack")
+                })
+              Button(
+                action: {
+                  print("Go to Artist")
+                },
+                label: {
+                  VStack {
+                    Text("Go to Artist")
+                    Text("Hello World").foregroundColor(.secondary)
+                  }
+                  Image(systemName: "music.mic")
+                })
+            })
+            .foregroundColor(.secondary)
+        })
+        .frame(maxWidth: .infinity, alignment: .leading)
+        Button(action: {}, label: {
+          Image(systemName: "ellipsis.circle.fill")
+            .resizable()
+            .frame(minWidth: 25, minHeight: 25)
+            .aspectRatio(contentMode: .fill)
+            .foregroundColor(baseColor)
+        })
+        .frame(maxWidth: 25, maxHeight: 25)
+      })
+      .frame(maxWidth: .infinity).padding(.horizontal)
+      Slider(value: .constant(50.0),
+             in: 0 ... 100,
+             onEditingChanged: { editing in
+               isEditing = editing
+             })
+             .padding(.horizontal, 25.0)
+             .foregroundColor(baseColor)
+             .progressViewStyle(.linear)
+             .tint(baseColor)
+      Spacer(minLength: 60)
       HStack {
         MediaSecondaryButton(systemImage: "shuffle",
                              color: isShuffle ? baseColor : Color(.gray),
                              action: self.shuffleSong)
-        MediaPrimaryButton(systemImage: "backward.fill", color: baseColor, action: self.prevSong)
-        MediaPrimaryButton(systemImage: isPlayingIcon, color: baseColor, action: self.togglePlay)
-        MediaPrimaryButton(systemImage: "forward.fill", color: baseColor, action: self.nextSong)
-        MediaSecondaryButton(systemImage: repeatIcon.0, color: repeatIcon.1, action: self.loopSong)
+        MediaPrimaryButton(systemImage: "backward.fill",
+                           color: baseColor,
+                           action: self.prevSong)
+        MediaPrimaryButton(systemImage: isPlayingIcon,
+                           color: baseColor,
+                           action: self.togglePlay)
+        MediaPrimaryButton(systemImage: "forward.fill",
+                           color: baseColor,
+                           action: self.nextSong)
+        MediaSecondaryButton(systemImage: repeatIcon.0,
+                             color: repeatIcon.1,
+                             action: self.loopSong)
       }
       .onAppear {
         UITabBar.appearance().barTintColor = UIColor(baseColor)
       }
-      .padding(.bottom, 100)
+      .padding(.bottom, 60.0)
+      Slider(value: .constant(50.0),
+             in: 0 ... 100,
+             label: {
+               Label(title: {}, icon: {})
+             },
+             minimumValueLabel: {
+               Label("", systemImage: "speaker.fill")
+             },
+             maximumValueLabel: {
+               Label("", systemImage: "speaker.wave.3.fill")
+             },
+             onEditingChanged: { editing in
+               isEditing = editing
+             })
+             .padding(.horizontal, 25.0)
+             .foregroundColor(baseColor)
+             .tint(baseColor)
+      Spacer(minLength: 60.0)
     }
   }
 
