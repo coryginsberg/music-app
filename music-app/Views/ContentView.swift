@@ -20,13 +20,7 @@ struct ContentView: View {
 
   var body: some View {
     TabView {
-      SongsList(allSongs: [SongDetails(id: "0",
-                                       color: .mint,
-                                       songTitle: "Love From The Other Side",
-                                       artist: "Fall Out Boy",
-                                       albumArt: .init(systemName: "play.square.fill"),
-                                       isExplicit: false,
-                                       isDownloaded: false)])
+      SongsList(allSongs: testSongs)
         .tabItem {
           Label("Library", systemImage: "music.note.list")
         }

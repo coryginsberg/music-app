@@ -10,8 +10,8 @@ import SwiftUI
 
 // MARK: - SongDetails
 
-struct SongDetails: Identifiable {
-  var id: String
+public struct SongDetails: Identifiable {
+  public var id: String
   var color: Color
   var songTitle: String
   var artist: String
